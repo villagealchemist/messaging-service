@@ -32,8 +32,6 @@ The service should implement:
 
 **SMS & MMS**
 
-URL: www.your.app/api/messages 
-
 **Example outbound payload to send an SMS or MMS**
 
 ```json
@@ -77,8 +75,6 @@ URL: www.your.app/api/messages
 
 **Email Provider**
 
-URL: www.mailplus.app/api/email 
-
 **Example Inbound Email**
 
 ```json
@@ -109,9 +105,12 @@ This project structure is laid out for you already. You are welcome to move or c
 
 ```
 .
-├── bin/            # Scripts and executables
-├── docker-compose.yml  # PostgreSQL database setup
-└── README.md       # This file
+├── bin/                    # Scripts and executables
+│   ├── start.sh           # Application startup script
+│   └── test.sh            # API testing script with curl commands
+├── docker-compose.yml      # PostgreSQL database setup
+├── Makefile               # Build and development commands with docker-compose integration
+└── README.md              # This file
 ```
 
 ## Getting Started
