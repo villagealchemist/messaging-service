@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export NODE_ENV=test
+
 # Test script for messaging service endpoints
 # This script tests the local messaging service using the JSON examples from README.md
 
@@ -103,7 +105,14 @@ curl -X GET "$BASE_URL/api/conversations" \
 
 # Test 8: Get messages for a conversation (example conversation ID)
 echo "8. Testing get messages for conversation..."
-curl -X GET "$BASE_URL/api/conversations/1/messages" \
+source .env
+if [ -z "$CONVERSATION_SMS_ID" ]; then
+  echo "⚠️  CONVERSATION_SMS_ID not set in .env. Seed the DB first." >&2
+  exit 1
+fi
+
+
+curl -X GET "$BASE_URL/api/conversations/$CONVERSATION_SMS_ID/messages" \
   -H "$CONTENT_TYPE" \
   -w "\nStatus: %{http_code}\n\n"
 

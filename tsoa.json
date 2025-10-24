@@ -1,0 +1,39 @@
+{
+  "entryFile": "src/app.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": ["src/controllers/**/*.ts"],
+  "spec": {
+    "outputDirectory": "public",
+    "specVersion": 3,
+    "name": "Messaging Service API",
+    "description": "Unified messaging API for SMS/MMS and Email providers",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Support"
+    },
+    "tags": [
+      {
+        "name": "Messages",
+        "description": "Send and manage messages"
+      },
+      {
+        "name": "Webhooks",
+        "description": "Receive inbound messages from providers"
+      },
+      {
+        "name": "Conversations",
+        "description": "View and manage conversations"
+      },
+      {
+        "name": "Health",
+        "description": "Service health checks"
+      }
+    ]
+  },
+  "routes": {
+    "routesDir": "src",
+    "middleware": "express",
+    "basePath": "/api",
+    "entryFile": "src/server.ts"
+  }
+}
